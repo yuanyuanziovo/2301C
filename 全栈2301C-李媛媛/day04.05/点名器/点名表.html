@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: url(./奥特曼.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        color: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .box {
+        width: 1000px;
+        height: 240px;
+        margin: 0 auto;
+        margin-top: 100px;
+        clear: both;
+    }
+
+    #btn {
+        width: 100px;
+        height: 30px;
+        margin-top: 50px;
+    }
+
+    input {
+        border-radius: 15px;
+        background-color: #7dbe53;
+        color: #fff;
+        border: 0;
+    }
+
+    #btn1 {
+        width: 100px;
+        height: 30px;
+        /* margin-left: 600px; */
+        margin-top: 50px;
+    }
+
+    #btn2 {
+        width: 100px;
+        height: 30px;
+        /* margin-left: 600px; */
+        margin-top: 50px;
+    }
+
+    #btn3 {
+        width: 100px;
+        height: 30px;
+        /* margin-left: 600px; */
+        margin-top: 50px;
+    }
+
+    .name {
+        width: 180px;
+        height: 30px;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 30px;
+        background: linear-gradient(to left, rgb(255, 216, 222), rgb(168, 168, 251), rgb(255, 113, 113));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    #span {
+        float: right;
+        position: relative;
+        /* top: 55px; */
+        right: 200px;
+        color: #fff;
+    }
+
+    .box {
+        width: 100%;
+        /* display: flex;
+        justify-content: space-between; */
+    }
+
+    .right {
+        width: 60%;
+    }
+
+    h2 {
+        margin-top: 40px;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <h1>凹凸曼</h1>
+    <div class="box">
+        <span id="span"></span>
+        <div class="right">
+            <div class="box" id="box"></div>
+        </div>
+        <div class="left">
+            <div class="top">
+                <h2>天选之人:</h2>
+            </div>
+            <input type="button" id="btn" value="单人点名">
+            <input type="button" id="btn1" value="双人点名">
+            <input type="button" id="btn2" value="男生点名">
+            <input type="button" id="btn3" value="女生点名">
+        </div>
+    </div>
+</body>
+<script>
+    //创建名字数组
+    var arrs = ["迪迦奥特曼", "戴拿奥特曼", "盖亚奥特曼", "赛文奥特曼", "赛罗奥特曼", "梦比优斯奥特曼", "雷欧奥特曼", "雷杰多奥特曼",
+        "诺亚奥特曼", "赛迦奥特曼", "银河胜利奥特曼", "艾斯奥特曼", "爱迪奥特曼", "佐菲奥特曼", "银河奥特曼", "维科特利奥特曼", "捷德奥特曼", "麦克斯奥特曼"
+        , "泰罗奥特曼", "杰克奥特曼", "乔尼亚斯奥特曼", "尤莉安奥特曼", "葛雷奥特曼", "阿古茹奥特曼", "哉阿斯奥特曼", "纳伊斯奥特曼", "高斯奥特曼", "杰斯提斯奥特曼"
+        , "希卡利奥特曼", "艾克斯奥特曼", "初代奥特曼", "查克奥特曼", "帕瓦特奥特曼", "斯科特奥特曼", "尼奥斯奥特曼", "帕瓦德奥特曼", "贝丝奥特曼", "欧布奥特曼"
+        , "布鲁奥特曼", "风马奥特曼", "泽塔奥特曼", "贝利亚奥特曼", "托雷基亚奥特曼", "泰塔斯奥特曼", "杰诺奥特曼"];
+    var boxNode = document.getElementById("box");
+    for (var i = 0; i < arrs.length; i++) {
+        0
+        var divNode = document.createElement("div");
+        divNode.innerHTML = arrs[i];
+        divNode.className = "name";
+        boxNode.appendChild(divNode);
+    }
+    //点名
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        if (this.value == "单人点名") {
+            timeId = setInterval(function () {
+                for (var j = 0; j < arrs.length; j++) {
+                    boxNode.children[j].style.color = "";
+                }
+                var random = parseInt(Math.random() * arrs.length);
+                boxNode.children[random].style.color = "white";
+            }, 200)
+            this.value = "停止";
+        } else {
+            clearInterval(timeId);
+            this.value = "点名";
+        }
+    }
+    // 双人
+    var btn1 = document.getElementById("btn1");
+    btn1.onclick = function () {
+        if (this.value == "双人点名") {
+            timeId = setInterval(function () {
+                for (var j = 0; j < arrs.length; j++) {
+                    boxNode.children[j].style.color = "";
+                }
+                var random = parseInt(Math.random() * arrs.length);
+                boxNode.children[random].style.color = "white";
+            }, 200)
+            this.value = "停止";
+        } else {
+            clearInterval(timeId);
+            this.value = "点名";
+        }
+    }
+    var spanNode = document.getElementById("span");
+    getTime();
+    setInterval(getTime, 1000);
+    function getTime() {
+        var day = new Date();
+        var year = day.getFullYear();
+        var month = day.getMonth() + 1;
+        var date = day.getDate();
+        var hours = day.getHours();
+        var minitues = day.getMinutes();
+        var second = day.getSeconds();
+        spanNode.innerHTML = year + "-" + month + "-" + date + " " + hours + ":" + minitues + ":" + second;
+    }
+</script>
+
+</html>

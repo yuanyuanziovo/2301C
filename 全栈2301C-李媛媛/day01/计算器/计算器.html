@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            padding: 8px;
+            box-sizing: border-box;
+            width: 300px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+        .input {
+            width: 300px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        td {
+            border-radius: 10px;
+            background-color: pink;
+        }
+
+        .top {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="4">
+                <input type="text" class="input" id="numinput">
+            </td>
+        </tr>
+        <tr>
+            <td onclick="Onclikc(this)">%</td>
+            <td onclick="Onclikc(this)">CE</td>
+            <td onclick="Onclikc(this)">C</td>
+            <td onclick="Onclikc(this)">x</td>
+        </tr>
+        <div class="top">
+            <tr>
+                <td onclick="Onclikc(this)">7</td>
+                <td onclick="Onclikc(this)">8</td>
+                <td onclick="Onclikc(this)">9</td>
+                <td onclick="Onclikc(this)">/</td>
+            </tr>
+            <tr>
+                <td onclick="Onclikc(this)">4</td>
+                <td onclick="Onclikc(this)">5</td>
+                <td onclick="Onclikc(this)">6</td>
+                <td onclick="Onclikc(this)">*</td>
+            </tr>
+            <tr>
+                <td onclick="Onclikc(this)">1</td>
+                <td onclick="Onclikc(this)">2</td>
+                <td onclick="Onclikc(this)">3</td>
+                <td onclick="Onclikc(this)">-</td>
+            </tr>
+            <tr>
+                <td onclick="Onclikc(this)">+</td>
+                <td onclick="Onclikc(this)">0</td>
+                <td onclick="Onclikc(this)">.</td>
+                <td onclick="Onclikc(this)">=</td>
+            </tr>
+        </div>
+    </table>
+</body>
+<script>
+    var arrs = "";
+    function Onclikc(obj) {
+        var arr = obj.innerText;
+        var numinput = document.getElementById('numinput')
+        if (arr == "=") {
+            numinput.value = "";
+            arr = eval(arrs);
+            arrs = arr + ""
+        } else {
+            arrs += arr
+        }
+        if (arr == "C") {
+            numinput.value = "";
+            arr = "",
+                arrs = ""
+        }
+        if (arr == "+" || arr == "-" || arr == "*" || arr == "/") {
+            numinput.value = ""
+        } else {
+            if (isNaN(numinput.value)) {
+                numinput.value = ""
+            }
+            numinput.value += arr
+        }
+    }
+</script>
+
+</html>
